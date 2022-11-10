@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Topics</h1>
+  <h1>
+    Topics
+    <a style="float: right" href="{% url 'newsapp:topic-create' %}" class="btn btn-primary">Create</a>
+  </h1>
 
   {% if topic_list %}
     <table class="table">
@@ -9,6 +12,8 @@
         <tr>
           <th>ID</th>
           <th>Name</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -16,6 +21,12 @@
           <tr>
             <td>{{ topic.id }}</td>
             <td>{{ topic.name }}</td>
+            <td>
+              <a href="{% url 'newsapp:topic-update' pk=topic.id %}">Update</a>
+            </td>
+            <td>
+              <a href="{% url 'newsapp:topic-delete' pk=topic.id %}">Delete</a>
+            </td>
           </tr>
         {% endfor %}
       </tbody>
