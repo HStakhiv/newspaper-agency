@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Redactors Table</h1>
+  {% if redactor_list %}
+    <table class="table">
+      <tr>
+        <th>username</th>
+        <th>Name</th>
+        <th>Surname</th>
+      </tr>
+    <tbody>
+      {% for redactor in redactor_list %}
+        <tr>
+          <td><a href="{% url 'newsapp:redactor-detail' pk=redactor.id %}">{{ redactor.username }}</a></td>
+          <td>{{ redacror.first_name }}</td>
+          <td>{{ redacror.last_name }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+      {% else %}
+        <p>There are no redactor in newspaper agency</p>
+  {% endif %}
+{% endblock %}
