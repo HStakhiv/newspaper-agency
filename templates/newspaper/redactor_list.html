@@ -2,41 +2,39 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>
-    Redactors Table
-    <a style="float: right" href="{% url 'newspaper:redactor-create' %}" class="btn btn-primary link-to-page">
+    <h1>
+      Redactor List
+      <a href="{% url 'newspaper:redactor-create' %}" class="btn btn-primary link-to-page">
         Create
-    </a>
-  </h1>
+      </a>
+    </h1>
 
-  <form action="" method="get" class="form-inline">
-    {{ search_form|crispy }}
-    <input class="btn btn-primary" type="submit" value="🔍">
-  </form>
+    <form action="" method="get" class="form-inline">
+      {{ search_form|crispy }}
+      <input class="btn btn-primary" type="submit" value="🔍">
+    </form>
 
-  {% if redactor_list %}
+    {% if redactor_list %}
     <table class="table">
       <tr>
-        <th>username</th>
-        <th>Name</th>
-        <th>Surname</th>
+        <th>ID</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Years of experience</th>
       </tr>
-    <tbody>
-      {% for redactor in redactor_list %}
-        <tr>
-          <td><a href="{{ redactor.get_absolute_url }}">
-            {{ redactor.username }}
-            {% if user.id == driver.id %}
-              <span>(Me)</span>
-            {% endif %}
-          </a></td>
-          <td>{{ redactor.first_name }}</td>
-          <td>{{ redactor.last_name }}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
+    {% for redactor in redactor_list %}
+      <tr>
+        <td>{{ redactor.id }}</td>
+        <td><a href="{{ redactor.get_absolute_url }}">{{ redactor.username }} {% if user == redactor %} (Me){% endif %}</a></td>
+        <td>{{ redactor.first_name }}</td>
+        <td>{{ redactor.last_name }}</td>
+        <td>{{ redactor.years_of_experience }}</td>
+      </tr>
+    {% endfor %}
+
     </table>
-      {% else %}
-        <p>There are no redactor in newspaper agency</p>
-  {% endif %}
+    {% else %}
+      <p>There are no redactor in the agency.</p>
+    {% endif %}
 {% endblock %}

@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Newspaper Agency Home</h1>
-  <p>Welcome to the Newspaper Agency</p>
-  <h3>Newspaper Agency content:</h3>
-  <ul>
-    <li>Number of newspapers: {{ num_newspapers }}</li>
-    <li>Number of redactors {{ num_redactors }}</li>
-    <li>Number of topics {{ num_topics }}</li>
-  </ul>
-  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+    <h1>Newspaper Agency Home</h1>
+    <p>Welcome to Newspaper Agency!</p>
+    <h2>Dynamic content</h2>
+    <p>The Newspaper Agency has the following record counts:</p>
+    <ul>
+        <li><strong>Newspapers:</strong> {{ num_newspapers }}</li>
+        <li><strong>Redactors:</strong> {{ num_redactors }}</li>
+        <li><strong>Topics:</strong> {{ num_topics }}</li>
+    </ul>
+
+    <p>You have visited this page
+        {{ num_visits }} time{{ num_visits|pluralize }}.
+    </p>
+
 {% endblock %}

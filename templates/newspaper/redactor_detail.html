@@ -1,20 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>
-    <strong>{{ redactor.username }}</strong>
-    ({{ redactor.first_name }} {{ redactor.last_name }})
-    <strong>Years of experience: {{ redactor.years_of_experience }}</strong>
-  </p>
-  {% for newspaper in redactor.newspaper.all %}
-    <hr>
-    <p>
-      <strong><a href="{% url "newspaper:newspaper-detail" pk=newspaper.id %}">ID: {{ newspaper.id }}</a></strong>
-    </p>
-    <p>Newspaper title: {{ newspaper.title }}</p>
+  <h1>
+    Username: {{ redactor.username }}
+    <a href="{% url 'newspaper:redactor-delete' pk=redactor.id %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+
+    <a href="{% url 'newspaper:redactor-update' pk=redactor.id %}" class="btn btn-secondary link-to-page">
+      Update years of experience
+    </a>
+  </h1>
+
+  <p><strong>First name:</strong> {{ redactor.first_name }}</p>
+  <p><strong>Last name:</strong> {{ redactor.last_name }}</p>
+  <p><strong>Years of experience:</strong> {{ redactor.years_of_experience }}</p>
+  <p><strong>Is staff:</strong> {{ redactor.is_staff }}</p>
+
+  <div class="ml-3">
+    <h4>Newspapers</h4>
+
+    {% for newspaper in redactor.newspaper.all %}
+        <hr>
+        <p><strong>Title:</strong> {{ newspaper.title }}</p>
+        <p><strong>Topic:</strong> {{ newspaper.topic.name }}</p>
+        <p class="text-muted"><strong>Id:</strong> {{redactor.id}}</p>
+
     {% empty %}
-      <p>Has no newspaper</p>
-  {% endfor %}
-  <a href="{% url 'newspaper:redactor-update' pk=redactor.id %}" class="btn btn-secondary">Update</a>
-  <a href="{% url 'newspaper:redactor-delete' pk=redactor.id %}" class="btn btn-danger">Delete</a>
+      <p>No newspapers!</p>
+    {% endfor %}
+  </div>
 {% endblock %}

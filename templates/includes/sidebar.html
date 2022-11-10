@@ -1,15 +1,15 @@
-<ul class="toggle-nav-sidebar">
+<ul class="sidebar-nav list-group">
   {% if user.is_authenticated %}
-    <li>User: <a href="{% url 'newspaper:redactor-detail' pk=user.id %}">{{ user.username }}</a></li>
-    <li><a href="{% url 'logout' %}">Logout</a></li>
+    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
+    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
   {% else %}
-    <li><a href="{% url 'login' %}">Login</a></li>
+    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
   {% endif %}
 
   <br>
 
-  <li><a href={% url "newspaper:index" %}>Home page</a></li>
-  <li><a href="{% url 'newspaper:topic-list' %}">Topics</a></li>
-  <li><a href="{% url 'newspaper:newspaper-list' %}">Newspapers</a></li>
-  <li><a href="{% url 'newspaper:redactor-list' %}">Redactors</a></li>
+  <li class="list-group-item"><a href="{% url 'newspaper:index' %}">Home</a></li>
+  <li class="list-group-item"><a href="{% url 'newspaper:redactor-list' %}">All redactors</a></li>
+  <li class="list-group-item"><a href="{% url 'newspaper:newspaper-list' %}">All newspapers</a></li>
+  <li class="list-group-item"><a href="{% url 'newspaper:topic-list' %}">All topics</a></li>
 </ul>

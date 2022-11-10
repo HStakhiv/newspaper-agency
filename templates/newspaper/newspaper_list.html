@@ -3,37 +3,27 @@
 
 {% block content %}
   <h1>
-    Newspaper Table
-    <a style="float: right" href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary">Create</a>
+    Newspaper list
+    <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
   </h1>
+
   <form action="" method="get" class="form-inline">
     {{ search_form|crispy }}
     <input class="btn btn-primary" type="submit" value="🔍">
   </form>
+
   {% if newspaper_list %}
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Date of publish</th>
-        <th>Topic</th>
-      </tr>
-    </thead>
-    <tbody>
+    <ul>
       {% for newspaper in newspaper_list %}
-        <tr>
-          <td><a href="{% url "newspaper:newspaper-detail" pk=newspaper.id %}">{{ newspaper.id }}</a></td>
-          <td>{{ newspaper.title }}</td>
-          <td>{{ newspaper.content }}</td>
-          <td>{{ newspaper.published_date }}</td>
-          <td>{{ newspaper.topic.name }}</td>
-        </tr>
+        <li>
+          <a href="{% url "newspaper:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.id }}</a>
+          {{ newspaper.title }} ({{ newspaper.topic.name }})
+        </li>
       {% endfor %}
-    </tbody>
-  </table>
+    </ul>
   {% else %}
-    <p>There are no newspapers in newspaper agency</p>
+    <p>There are no newspaper in taxi</p>
   {% endif %}
 {% endblock %}

@@ -3,8 +3,10 @@
 
 {% block content %}
   <h1>
-    Topics
-    <a style="float: right" href="{% url 'newspaper:topic-create' %}" class="btn btn-primary">Create</a>
+    Topic List
+    <a href="{% url 'newspaper:topic-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
   </h1>
 
   <form action="" method="get" class="form-inline">
@@ -14,30 +16,37 @@
 
   {% if topic_list %}
     <table class="table">
-      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+      {% for topic in topic_list %}
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Update</th>
-          <th>Delete</th>
+          <td>
+              {{ topic.id }}
+          </td>
+          <td>
+              {{ topic.name }}
+          </td>
+          <td>
+              <a href="{% url 'newspaper:topic-update' pk=topic.id %}">
+                Update
+              </a>
+            </td>
+            <td>
+              <a style="color: red"
+                href="{% url 'newspaper:topic-delete' pk=topic.id %}">
+                Delete
+              </a>
+            </td>
         </tr>
-      </thead>
-      <tbody>
-        {% for topic in topic_list %}
-          <tr>
-            <td>{{ topic.id }}</td>
-            <td>{{ topic.name }}</td>
-            <td>
-              <a href="{% url 'newspaper:topic-update' pk=topic.id %}">Update</a>
-            </td>
-            <td>
-              <a href="{% url 'newspaper:topic-delete' pk=topic.id %}">Delete</a>
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
+      {% endfor %}
     </table>
+
   {% else %}
-    <p>No topics found</p>
+      <p>There are no topic in the agency.</p>
   {% endif %}
 {% endblock %}
