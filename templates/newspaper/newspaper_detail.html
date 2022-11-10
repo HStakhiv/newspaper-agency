@@ -20,6 +20,7 @@
       </li>
     {% endfor %}
   </ul>
+  <p>{{ newspaper.content }}</p>
   <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}" class="btn btn-secondary">Update</a>
   <a href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger">Delete</a>
 {% endblock %}
