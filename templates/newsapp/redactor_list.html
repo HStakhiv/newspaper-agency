@@ -13,8 +13,8 @@
       {% for redactor in redactor_list %}
         <tr>
           <td><a href="{% url 'newsapp:redactor-detail' pk=redactor.id %}">{{ redactor.username }}</a></td>
-          <td>{{ redacror.first_name }}</td>
-          <td>{{ redacror.last_name }}</td>
+          <td>{{ redactor.first_name }}</td>
+          <td>{{ redactor.last_name }}</td>
         </tr>
       {% endfor %}
     </tbody>
