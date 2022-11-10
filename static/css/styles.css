@@ -22,3 +22,12 @@ body {
         height: 100%;
     }
 }
+body, html {
+  background-image: url("https://npr.brightspotcdn.com/dims4/default/de472e6/2147483647/strip/true/crop/1254x836+0+0/resize/880x587!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Ff9%2F10%2F51c6b4014b23b261b4a03db0a44f%2Fnewspapers-istock.jpg");
+
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
