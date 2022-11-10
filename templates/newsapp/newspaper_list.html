@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Newspaper Table</h1>
+  <h1>
+    Newspaper Table
+    <a style="float: right" href="{% url 'newsapp:newspaper-create' %}" class="btn btn-primary">Create</a>
+  </h1>
   {% if newspaper_list %}
   <table class="table">
     <thead>
