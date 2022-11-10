@@ -15,4 +15,6 @@
     {% empty %}
       <p>Has no newspaper</p>
   {% endfor %}
+  <a href="{% url 'newsapp:redactor-update' pk=redactor.id %}" class="btn btn-secondary">Update</a>
+  <a href="{% url 'newsapp:redactor-detail' pk=redactor.id %}" class="btn btn-danger">Delete</a>
 {% endblock %}

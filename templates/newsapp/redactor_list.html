@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Redactors Table</h1>
+  <h1>
+    Redactors Table
+    <a style="float: right" href="{% url 'newsapp:redactor-create' %}" class="btn btn-primary link-to-page">
+        Create
+    </a>
+  </h1>
   {% if redactor_list %}
     <table class="table">
       <tr>
