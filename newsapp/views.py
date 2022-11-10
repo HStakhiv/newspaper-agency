@@ -22,3 +22,9 @@ class TopicListView(generic.ListView):
     model = Topic
     queryset = Topic.objects.order_by("name")
     paginate_by = 5
+
+
+class NewspaperListView(generic.ListView):
+    model = Newspaper
+    paginate_by = 5
+    queryset = Newspaper.objects.select_related("topic")
