@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ newspaper.title }}</h1>
+  <p><strong>Newspaper:</strong> ({{ newspaper.topic.name }}, {{ newspaper.topic.country }})</p>
+  <h3>Redactors:</h3>
+  <hr>
+  <ul>
+    {% for redactor in newspaper.redactor.all %}
+      <li>
+        <strong><a href="{% url 'newsapp:redactor-detail' pk=redactor.id %}">{{ redactor.first_name }} {{ redactor.last_name }}</a></strong>
+        (Years of experience: {{ redactor.years_of_experience }})
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
