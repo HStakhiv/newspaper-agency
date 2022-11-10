@@ -15,6 +15,7 @@ from newsapp.views import (
     RedactorCreationView,
     RedactorUpdateView,
     RedactorDeleteView,
+    toggle_assign_to_newspaper,
 )
 
 urlpatterns = [
@@ -33,6 +34,7 @@ urlpatterns = [
     path("redactor/create/", RedactorCreationView.as_view(), name="redactor-create"),
     path("redactor/<int:pk>/update/", RedactorUpdateView.as_view(), name="redactor-update"),
     path("redactor/<int:pk>/delete/", RedactorDeleteView.as_view(), name="redactor-delete"),
+    path("redactor/<int:pk>/toggle_assign_to_newspaper", toggle_assign_to_newspaper, name="toggle_assign_to_newspaper"),
 ]
 
 app_name = "newsapp"

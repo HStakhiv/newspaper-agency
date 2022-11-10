@@ -3,7 +3,14 @@
 {% block content %}
   <h1>{{ newspaper.title }}</h1>
   <p><strong>Newspaper:</strong> ({{ newspaper.topic.name }}, {{ newspaper.topic.country }})</p>
-  <h3>Redactors:</h3>
+  <h3>
+    Redactors:
+    {% if user not in newspaper.redactor.all %}
+      <a style="float: right" href="{% url 'newsapp:toggle_assign_to_newspaper' pk=newspaper.id %}" class="btn btn-success">Assign me to this newspaper</a>
+    {% else %}
+      <a style="float: right" href="{% url 'newsapp:toggle_assign_to_newspaper' pk=newspaper.id %}" class="btn btn-danger">Delete me from this newspaper</a>
+    {% endif %}
+  </h3>
   <hr>
   <ul>
     {% for redactor in newspaper.redactor.all %}
