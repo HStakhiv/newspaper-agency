@@ -24,7 +24,7 @@
     <tbody>
       {% for redactor in redactor_list %}
         <tr>
-          <td><a href="{% url 'newspaper:redactor-detail' pk=redactor.id %}">
+          <td><a href="{{ redactor.get_absolute_url }}">
             {{ redactor.username }}
             {% if user.id == driver.id %}
               <span>(Me)</span>
