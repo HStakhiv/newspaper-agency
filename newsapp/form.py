@@ -7,14 +7,12 @@ from newsapp.models import Redactor, Newspaper
 
 
 class RedactorCreationForm(UserCreationForm):
-
     class Meta(UserCreationForm.Meta):
         model = Redactor
         fields = UserCreationForm.Meta.fields + ("years_of_experience",)
 
 
 class RedactorYearsUpdateForm(forms.ModelForm):
-
     class Meta:
         model = Redactor
         fields = ("years_of_experience",)
@@ -29,7 +27,7 @@ class RedactorYearsUpdateForm(forms.ModelForm):
 
 
 class DateInput(forms.DateInput):
-    input_type = 'date'
+    input_type = "date"
 
 
 class NewspaperForm(forms.ModelForm):
