@@ -1,10 +1,16 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <h1>
     Topics
     <a style="float: right" href="{% url 'newsapp:topic-create' %}" class="btn btn-primary">Create</a>
   </h1>
+
+  <form action="" method="get" class="form-inline">
+    {{ search_form|crispy }}
+    <input class="btn btn-primary" type="submit" value="🔍">
+  </form>
 
   {% if topic_list %}
     <table class="table">
