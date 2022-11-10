@@ -4,7 +4,7 @@
 {% block content %}
   <h1>
     Newspaper Table
-    <a style="float: right" href="{% url 'newsapp:newspaper-create' %}" class="btn btn-primary">Create</a>
+    <a style="float: right" href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary">Create</a>
   </h1>
   <form action="" method="get" class="form-inline">
     {{ search_form|crispy }}
@@ -24,7 +24,7 @@
     <tbody>
       {% for newspaper in newspaper_list %}
         <tr>
-          <td><a href="{% url "newsapp:newspaper-detail" pk=newspaper.id %}">{{ newspaper.id }}</a></td>
+          <td><a href="{% url "newspaper:newspaper-detail" pk=newspaper.id %}">{{ newspaper.id }}</a></td>
           <td>{{ newspaper.title }}</td>
           <td>{{ newspaper.content }}</td>
           <td>{{ newspaper.published_date }}</td>

@@ -1,5 +1,5 @@
 from django.urls import path
-from newsapp.views import (
+from newspaper.views import (
     index,
     TopicListView,
     TopicCreateView,
@@ -81,4 +81,4 @@ urlpatterns = [
     ),
 ]
 
-app_name = "newsapp"
+app_name = "newspaper"

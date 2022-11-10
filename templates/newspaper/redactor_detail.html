@@ -9,12 +9,12 @@
   {% for newspaper in redactor.newspaper.all %}
     <hr>
     <p>
-      <strong><a href="{% url "newsapp:newspaper-detail" pk=newspaper.id %}">ID: {{ newspaper.id }}</a></strong>
+      <strong><a href="{% url "newspaper:newspaper-detail" pk=newspaper.id %}">ID: {{ newspaper.id }}</a></strong>
     </p>
     <p>Newspaper title: {{ newspaper.title }}</p>
     {% empty %}
       <p>Has no newspaper</p>
   {% endfor %}
-  <a href="{% url 'newsapp:redactor-update' pk=redactor.id %}" class="btn btn-secondary">Update</a>
-  <a href="{% url 'newsapp:redactor-delete' pk=redactor.id %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'newspaper:redactor-update' pk=redactor.id %}" class="btn btn-secondary">Update</a>
+  <a href="{% url 'newspaper:redactor-delete' pk=redactor.id %}" class="btn btn-danger">Delete</a>
 {% endblock %}

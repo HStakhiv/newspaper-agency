@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from newsapp.form import (
+from newspaper.form import (
     NewspaperForm,
     RedactorCreationForm,
     RedactorYearsUpdateForm,
@@ -13,7 +13,7 @@ from newsapp.form import (
     RedactorSearchForm,
     NewspaperSearchForm,
 )
-from newsapp.models import Redactor, Topic, Newspaper
+from newspaper.models import Redactor, Topic, Newspaper
 
 
 @login_required
@@ -32,7 +32,7 @@ def index(request):
         "num_visits": num_visits + 1,
     }
 
-    return render(request, "newsapp/index.html", context=context)
+    return render(request, "newspaper/index.html", context=context)
 
 
 class TopicListView(LoginRequiredMixin, generic.ListView):
@@ -65,18 +65,18 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
 class TopicCreateView(LoginRequiredMixin, generic.CreateView):
     model = Topic
     fields = "__all__"
-    success_url = reverse_lazy("newsapp:topic-list")
+    success_url = reverse_lazy("newspaper:topic-list")
 
 
 class TopicUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Topic
     fields = "__all__"
-    success_url = reverse_lazy("newsapp:topic-list")
+    success_url = reverse_lazy("newspaper:topic-list")
 
 
 class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Topic
-    success_url = reverse_lazy("newsapp:topic-list")
+    success_url = reverse_lazy("newspaper:topic-list")
 
 
 class NewspaperListView(LoginRequiredMixin, generic.ListView):
@@ -113,18 +113,18 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
 class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
     model = Newspaper
     form_class = NewspaperForm
-    success_url = reverse_lazy("newsapp:newspaper-list")
+    success_url = reverse_lazy("newspaper:newspaper-list")
 
 
 class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Newspaper
     form_class = NewspaperForm
-    success_url = reverse_lazy("newsapp:newspaper-list")
+    success_url = reverse_lazy("newspaper:newspaper-list")
 
 
 class NewspaperDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Newspaper
-    success_url = reverse_lazy("newsapp:newspaper-list")
+    success_url = reverse_lazy("newspaper:newspaper-list")
 
 
 class RedactorListView(LoginRequiredMixin, generic.ListView):
@@ -162,6 +162,7 @@ class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
 class RedactorCreationView(LoginRequiredMixin, generic.CreateView):
     model = Redactor
     form_class = RedactorCreationForm
+    success_url = reverse_lazy("newspaper:redactor-list")
 
 
 class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
@@ -171,7 +172,7 @@ class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Redactor
-    success_url = reverse_lazy("newsapp:redactor-list")
+    success_url = reverse_lazy("newspaper:redactor-list")
 
 
 @login_required
@@ -182,5 +183,5 @@ def toggle_assign_to_newspaper(request, pk):
     else:
         redactor.newspaper.add(pk)
     return HttpResponseRedirect(
-        reverse_lazy("newsapp:newspaper-detail", args=[pk])
+        reverse_lazy("newspaper:newspaper-detail", args=[pk])
     )

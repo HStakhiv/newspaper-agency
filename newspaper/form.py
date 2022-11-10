@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.core.exceptions import ValidationError
 
-from newsapp.models import Redactor, Newspaper
+from newspaper.models import Redactor, Newspaper
 
 
 class RedactorCreationForm(UserCreationForm):

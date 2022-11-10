@@ -1,6 +1,6 @@
 <ul class="toggle-nav-sidebar">
   {% if user.is_authenticated %}
-    <li>User: <a href="{% url 'newsapp:redactor-detail' pk=user.id %}">{{ user.username }}</a></li>
+    <li>User: <a href="{% url 'newspaper:redactor-detail' pk=user.id %}">{{ user.username }}</a></li>
     <li><a href="{% url 'logout' %}">Logout</a></li>
   {% else %}
     <li><a href="{% url 'login' %}">Login</a></li>
@@ -8,8 +8,8 @@
 
   <br>
 
-  <li><a href={% url "newsapp:index" %}>Home page</a></li>
-  <li><a href="{% url 'newsapp:topic-list' %}">Topics</a></li>
-  <li><a href="{% url 'newsapp:newspaper-list' %}">Newspapers</a></li>
-  <li><a href="{% url 'newsapp:redactor-list' %}">Redactors</a></li>
+  <li><a href={% url "newspaper:index" %}>Home page</a></li>
+  <li><a href="{% url 'newspaper:topic-list' %}">Topics</a></li>
+  <li><a href="{% url 'newspaper:newspaper-list' %}">Newspapers</a></li>
+  <li><a href="{% url 'newspaper:redactor-list' %}">Redactors</a></li>
 </ul>

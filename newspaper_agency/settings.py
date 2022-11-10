@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "crispy_forms",
     "crispy_bootstrap5",
-    "newsapp",
+    "newspaper",
 ]
 
 MIDDLEWARE = [
@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = "newsapp.Redactor"
+AUTH_USER_MODEL = "newspaper.Redactor"
 
 LOGIN_REDIRECT_URL = "/"
 
