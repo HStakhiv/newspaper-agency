@@ -33,7 +33,7 @@ class Newspaper(models.Model):
         to=Topic, on_delete=models.CASCADE, related_name="newspaper"
     )
     redactor = models.ManyToManyField(
-        to=settings.AUTH_USER_MODEL, related_name="newspaper"
+        to=Redactor, related_name="newspaper"
     )
 
     def __str__(self):
