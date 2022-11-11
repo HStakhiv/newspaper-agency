@@ -1,0 +1,53 @@
+<nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+  <div class="scrollbar-inner">
+    <!-- Brand -->
+    <div class="sidenav-header  align-items-center">
+      <a class="navbar-brand" href="/">
+        <img src="/static/assets/img/brand/ui_design_newspap.svg" class="navbar-brand-img" alt="Template Logo.">
+      </a>
+    </div>
+    <div class="navbar-inner">
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+        <!-- Nav items -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/' %} active {% endif %}" href="/">
+              <i class="ni ni-tv-2 text-primary"></i>
+              <span class="nav-link-text">Home</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/newspaper/' %} active {% endif %}" href="{% url 'newspaper:newspaper-list' %}">
+              <i class="ni ni-paper-diploma text-red  "></i>
+              <span class="nav-link-text">All newspapers</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/redactor/' %} active {% endif %}" href="{% url 'newspaper:redactor-list' %}">
+              <i class="ni ni-ruler-pencil text-orange"></i>
+              <span class="nav-link-text">All redactors</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/topic/' %} active {% endif %}" href="{% url 'newspaper:topic-list' %}">
+              <i class="ni ni-tag text-green"></i>
+              <span class="nav-link-text">All topics</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Navigation -->
+        <ul class="navbar-nav mb-md-3">
+          <li class="nav-item">
+            <a class="nav-link active active-pro"
+               href="{% url 'logout' %}">
+              <i class="ni ni-user-run text-red"></i>
+              <span class="nav-link-text">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

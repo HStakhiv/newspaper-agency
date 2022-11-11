@@ -1,18 +1,209 @@
-{% extends "base.html" %}
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-    <h1>Newspaper Agency Home</h1>
-    <p>Welcome to Newspaper Agency!</p>
-    <h2>Dynamic content</h2>
-    <p>The Newspaper Agency has the following record counts:</p>
-    <ul>
-        <li><strong>Newspapers:</strong> {{ num_newspapers }}</li>
-        <li><strong>Redactors:</strong> {{ num_redactors }}</li>
-        <li><strong>Topics:</strong> {{ num_topics }}</li>
-    </ul>
 
-    <p>You have visited this page
-        {{ num_visits }} time{{ num_visits|pluralize }}.
-    </p>
+    <!-- Header -->
+    <div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Home</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#"></a></li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+          <!-- Card stats -->
+          <div class="row">
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <a href="{% url 'newspaper:index' %}">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">
+                          Page visits
+                        </h5>
+                        <span class="h2 font-weight-bold mb-0">{{ num_visits }}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon">
+                          <img src="/static/assets/img/icons/artificialintelligence26_101982.svg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <a href="{% url 'newspaper:newspaper-list' %}">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Newspapers</h5>
+                        <span class="h2 font-weight-bold mb-0">{{ num_newspapers }}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon">
+                          <img src="/static/assets/img/icons/newspaper_78461.svg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <a href="{% url 'newspaper:redactor-list' %}">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Redactors</h5>
+                        <span class="h2 font-weight-bold mb-0">{{ num_redactors }}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon">
+                          <img src="/static/assets/img/icons/rotation_102346.svg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <a href="{% url 'newspaper:topic-list' %}">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Topics</h5>
+                        <span class="h2 font-weight-bold mb-0">{{ num_topics }}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon">
+                          <img src="/static/assets/img/icons/topic_discussion_icon_154711.svg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-{% endblock %}
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+        <div class="col-xl-7">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Top redactors</h3>
+                </div>
+                <div class="col text-right">
+                  <a href="{% url 'newspaper:redactor-list' %}" class="btn btn-sm btn-primary">See all</a>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">Experience</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for redactor in redactor_info %}
+                    <tr>
+                      <th scope="row">
+                        {{ redactor.username }}
+                      </th>
+                      <td>
+                        {{ redactor.first_name }}
+                      </td>
+                      <td>
+                        {{ redactor.last_name }}
+                      </td>
+                      <td>
+                        {{ redactor.years_of_experience }} year{{ redactor.years_of_experience|pluralize }}
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-5">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Latest articles</h3>
+                </div>
+                <div class="col text-right">
+                  <a href="{% url 'newspaper:newspaper-list' %}" class="btn btn-sm btn-primary">See all</a>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Title</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for article in newspaper_articles %}
+                    <tr>
+                      <th scope="row">
+                        {{ article.title }}
+                      </th>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

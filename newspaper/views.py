@@ -1,7 +1,8 @@
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -12,20 +13,47 @@ from newspaper.form import (
     TopicSearchForm,
     RedactorSearchForm,
     NewspaperSearchForm,
+    LoginForm,
 )
 from newspaper.models import Redactor, Topic, Newspaper
 
 
+def login_view(request):
+    form = LoginForm(request.POST or None)
+
+    msg = None
+
+    if request.method == "POST":
+
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect("/")
+            else:
+                msg = 'Invalid credentials'
+        else:
+            msg = 'Error validating the form'
+
+    return render(request, "accounts/login.html", {"form": form, "msg": msg})
+
+
 @login_required
 def index(request):
-    num_redactors = Redactor.objects.count()
+    redactor = Redactor.objects.all()
+    newspaper = Newspaper.objects.all()
+    num_redactors = redactor.count()
     num_topics = Topic.objects.count()
-    num_newspapers = Newspaper.objects.count()
+    num_newspapers = newspaper.count()
 
     num_visits = request.session.get("num_visits", 0)
     request.session["num_visits"] = num_visits + 1
 
     context = {
+        "redactor_info": redactor.order_by("-years_of_experience")[:5],
+        "newspaper_articles": newspaper.order_by("published_date")[:5],
         "num_redactors": num_redactors,
         "num_topics": num_topics,
         "num_newspapers": num_newspapers,

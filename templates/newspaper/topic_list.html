@@ -1,52 +1,89 @@
-{% extends "base.html" %}
-{% load crispy_forms_filters %}
+{% extends 'layouts/base.html' %}
+
+{% block title %} Tables {% endblock title %}
 
 {% block content %}
-  <h1>
-    Topic List
-    <a href="{% url 'newspaper:topic-create' %}" class="btn btn-primary link-to-page">
-      Create
-    </a>
-  </h1>
 
-  <form action="" method="get" class="form-inline">
-    {{ search_form|crispy }}
-    <input class="btn btn-primary" type="submit" value="🔍">
-  </form>
+  <div class="header bg-primary pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <h6 class="h2 text-white d-inline-block mb-0">Topics</h6>
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item"><a href="{{ request.path }}">Topic</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="col-lg-6 col-5 text-right">
+            <a href="{% url 'newspaper:topic-create' %}" class="btn btn-sm btn-neutral">Create new topic</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  {% if topic_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Update</th>
-        <th>Delete</th>
-      </tr>
+  <!-- Page content -->
+  <div class="container-fluid mt--6">
+    <div class="row">
+      <div class="col">
+        <h3 class="font-weight-bolder text-center text-white">TOPIC TABLE</h3>
+        <div class="card">
+          <!-- Card header -->
+          <div class="card-header border-0">
+            <form action="" method="get" class="mb-0 form-inline">
+              {{ search_form }}
+              <input class="btn btn-sm btn-primary" type="submit" value="🔍 Search">
+            </form>
+          </div>
+          <!-- Table -->
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" class="sort text-center" data-sort="name">ID</th>
+                  <th scope="col" class="sort text-center" data-sort="budget">Topic</th>
+                  <th scope="col" class="sort text-center" data-sort="status">Update</th>
+                  <th scope="col" class="sort text-center" data-sort="completion">Delete</th>
+                </tr>
+              </thead>
+              <tbody class="list">
+                {% for topic in topic_list %}
+                  <tr>
+                    <th scope="row" class="text-center">
+                      {{ topic.id }}
+                    </th>
+                    <td class="budget text-center">
+                      {{ topic.name }}
+                    </td>
+                    <td class="text-center">
+                      <a href="{% url 'newspaper:topic-update' pk=topic.id %}" class="btn btn-sm btn-success">
+                        Update
+                      </a>
+                    </td>
+                    <td class="text-center">
+                      <a href="{% url 'newspaper:topic-delete' pk=topic.id %}" class="btn btn-sm btn-danger">
+                        Delete
+                      </a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <!-- Card footer -->
+          {% include "includes/pagination.html" %}
+        </div>
+      </div>
+    </div>
 
-      {% for topic in topic_list %}
-        <tr>
-          <td>
-              {{ topic.id }}
-          </td>
-          <td>
-              {{ topic.name }}
-          </td>
-          <td>
-              <a href="{% url 'newspaper:topic-update' pk=topic.id %}">
-                Update
-              </a>
-            </td>
-            <td>
-              <a style="color: red"
-                href="{% url 'newspaper:topic-delete' pk=topic.id %}">
-                Delete
-              </a>
-            </td>
-        </tr>
-      {% endfor %}
-    </table>
+    {% include "includes/footer.html" %}
 
-  {% else %}
-      <p>There are no topic in the agency.</p>
-  {% endif %}
-{% endblock %}
+  </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}{% endblock javascripts %}
