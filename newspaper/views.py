@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from newspaper.form import (
+from newspaper.forms import (
     NewspaperForm,
     RedactorCreationForm,
     RedactorUpdateForm,
