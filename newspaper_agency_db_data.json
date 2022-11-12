@@ -1,0 +1,428 @@
+[
+  {
+    "model": "newspaper.topic",
+    "pk": 1,
+    "fields": {
+      "name": "Business"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 2,
+    "fields": {
+      "name": "Market Data"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 3,
+    "fields": {
+      "name": "Culture"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 4,
+    "fields": {
+      "name": "Future"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 5,
+    "fields": {
+      "name": "Travel"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 6,
+    "fields": {
+      "name": "Life"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 7,
+    "fields": {
+      "name": "Work"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 8,
+    "fields": {
+      "name": "War"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 9,
+    "fields": {
+      "name": "Sport"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 10,
+    "fields": {
+      "name": "Weekend Reads"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 11,
+    "fields": {
+      "name": "Climate"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 12,
+    "fields": {
+      "name": "Art"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 13,
+    "fields": {
+      "name": "Music"
+    }
+  },
+  {
+    "model": "newspaper.topic",
+    "pk": 14,
+    "fields": {
+      "name": "Style"
+    }
+  },
+  {
+    "model": "newspaper.redactor",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
+      "last_login": "2022-08-08T14:14:03Z",
+      "is_superuser": true,
+      "username": "admin.user",
+      "first_name": "Admin",
+      "last_name": "User",
+      "email": "admin.user@newspaper.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-08-08T13:58:29Z",
+      "years_of_experience": "1",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "newspaper.redactor",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$73Z1Y57bcoscZ37s9rE9v0$4SEQ0TtXwJKzO5/CRdFSrTifatiPjkZ38gM2H8Kqsdg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "joyce.byers",
+      "first_name": "Joyce",
+      "last_name": "Byers",
+      "email": "joyce.byers@newspaper.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-08T14:17:04Z",
+      "years_of_experience": "1",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "newspaper.redactor",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$QtPol3T7x9quBj4BnbnVwW$UwT4kihkRfSvQEWEeuqVKwMgis2ikKVZfJDBcQMvOKY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jim.hopper",
+      "first_name": "Jim",
+      "last_name": "Hopper",
+      "email": "jim.hopper@newspaper.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-08T14:19:09Z",
+      "years_of_experience": "1",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "newspaper.redactor",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l1$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jonathan.byers",
+      "first_name": "Jonathan",
+      "last_name": "Byers",
+      "email": "jonathan.byers@newspaper.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-08T14:19:09Z",
+      "years_of_experience": "1",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "newspaper.redactor",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l1$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "dustin.henderson",
+      "first_name": "Dustin",
+      "last_name": "Henderson",
+      "email": "dustin.henderson@newspaper.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "years_of_experience": "1",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "newspaper.redactor",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "mike.wheeler",
+      "first_name": "Mike",
+      "last_name": "Wheeler",
+      "email": "mike.wheeler@newspaper.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "years_of_experience": "1",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "newspaper.redactor",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "lucas.sinclair",
+      "first_name": "Lucas",
+      "last_name": "Sinclair",
+      "email": "lucas.sinclair@newspaper.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "years_of_experience": "1",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "newspaper.redactor",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "nancy.wheeler",
+      "first_name": "Nancy",
+      "last_name": "Wheeler",
+      "email": "nancy.wheeler@newspaper.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "years_of_experience": "1",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "newspaper.redactor",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "martin.brenner",
+      "first_name": "Martin",
+      "last_name": "Brenner",
+      "email": "martin.brenner@newspaper.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "years_of_experience": "1",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "newspaper.redactor",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "billy.hargrove",
+      "first_name": "Billy",
+      "last_name": "Hargrove",
+      "email": "billy.hargrove@newspaper.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "years_of_experience": "1",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+    {
+    "model": "newspaper.redactor",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "bob.newby",
+      "first_name": "Bob",
+      "last_name": "Newby",
+      "email": "bob.newby@newspaper.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "years_of_experience": "1",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "newspaper.newspaper",
+    "pk": 1,
+    "fields": {
+      "title": "Celebrations in Ukraine after 'extraordinary victory' in Kherson",
+      "content": "The Russian withdrawal from Kherson is historic for the Ukrainians because they have taken a giant step towards an eventual victory.\n\nZelensky's own spokespeople have been saying they will not rest until they get Russians out of all of the country, including the Crimean peninsula which Russia seized in 2014.\n\nThe Russians are arguing that they executed a successful fighting retreat, bringing out their forces to fight another day.\n\nThe Ukrainian forces will be moving up steadily to Kherson, they're in the hinterland of the city already.\n\nBut they are being cautious because they're saying first of all that there could be booby traps or mines, and more seriously than that, now that the Russians have crossed the river into their new fortifications, they're still only a couple of miles away and well in artillery range.\n\nThere have been concerns raised by the spokespeople for the southern commander of the Ukrainian armed forces, saying that they're preparing for a big bombardment into the city from the Russian-controlled side.\n\nSo they will not want to expose too many of their troops or civilians to that.",
+      "published_date": "2022-11-11",
+      "topic": 1,
+      "redactor": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "newspaper.newspaper",
+    "pk": 2,
+    "fields": {
+      "title": "US midterms: Senate race neck and neck as Democrat Mark Kelly wins Arizona",
+      "content": "US President Joe Biden's Democrats have inched closer to keeping control of the Senate, with a projected win in Arizona following the midterm elections.\n\nThree days after Americans voted, the BBC's US partner CBS estimates Democrat Mark Kelly has beaten Republican challenger Blake Masters.\n\nThat would leave the Senate at 49 Democratic seats and 49 Republican seats.\n\nJust Nevada and Georgia are yet to be decided.\n\nThe vote count in Nevada is neck and neck, while Georgia's race will be settled by a run-off election next month.\n\nIf Democrats win either of the two remaining races they will remain in control of the upper chamber of Congress because the US vice-president can cast a tie-breaking vote on their behalf.\n\nRepublicans could still take control of the US House of Representatives as votes continue to be tallied from a handful of districts after Tuesday's elections.\n\nIf the Republicans win either or both chambers of Congress they could thwart much of Mr Biden's agenda.\n\nMr Kelly, a former astronaut whose wife, Gabby Giffords, survived an assassination attempt when she was a US lawmaker, was first elected two years ago to serve out the remainder of the late John McCain's Senate term.\n\nIn a statement, Mr Kelly said: \"From day one, this campaign has been about the many Arizonans - Democrats, Independents, and Republicans - who believe in working together to tackle the significant challenges we face.\n\n\"That's exactly what I've done in my first two years in office and what I will continue to do for as long as I'm there.\"\n\nMr Masters, a 36-year-old venture capitalist, had been endorsed by former President Donald Trump without political experience. He had refused to accept the 2020 election results and repeated false claims of election fraud.\n\nIn an email to supporters on Thursday, the Masters campaign said it had seen \"troubling\" issues during the election and asked for contributions, the New York Times reported.\n\n\"We're expecting a contested road forward and legal battles to come,\" it said.\n\nThe result is another blow to the Republicans, who were hoping for a \"red wave\" - an electoral rout which would deliver a harsh rebuke of President Joe Biden and the Democrats.\n\nWhile the party has made modest gains and remains favoured to win the House of Representatives, the Senate remained hotly contested and the Democrats have performed better than expected.\n\nMr Biden has said the election was a \"good day\" for US democracy.",
+      "published_date": "2022-11-09",
+      "topic": 4,
+      "redactor": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "newspaper.newspaper",
+    "pk": 3,
+    "fields": {
+      "title": "Air pollution: Uncovering the dirty secret behind BP’s bumper profits",
+      "content": "Far removed from the world leaders making climate pledges at COP, are people like Ali Hussein Julood, a young leukaemia survivor living on an Iraqi oil field co-managed by BP. When the BBC discovered BP was not declaring the field's gas flaring, Ali helped us to reveal the truth about the poisonous air the local community has to breathe.\n\nI first saw videos shared on Twitter of burning skies and clouds of black smoke over people's houses in Iraq's oil fields in 2019, and learned that this was a common procedure known as gas flaring - burning off the toxic excess gas that is a by-product of oil drilling.\n\nWe discovered through satellite data that Rumaila in Basra, southern Iraq, is the world's worst offender for gas flaring. Gas flaring is not only a significant source of greenhouse gas emissions, it is also known to emit benzene - which heightens the risk of cancer, particularly childhood leukaemia.\n\nDozens of people we spoke to living in five different communities near oil fields like Rumaila, told the same story - that they had a close relative or a friend who was suffering from cancer, often leukaemia.\n\nOne of those was Ali, then 18 years old, whose father had sold everything in his house to raise money for his son's cancer treatment in Turkey. Ali said that the cancer hospital in Basra was full of people like him who lived near oil fields. Rumaila, home to several thousand people, has been given the nickname \"the shadow town\" by locals, because it is cut off and lacking in basic services. Ali and his friends call it \"the cemetery\".\n\n\"We'd be playing football, then we'd have to run inside, because of the clouds of smoke suffocating us and oil raining from the sky,\" Ali told us.\n\n\"When I told the doctor [in Basra Children's Cancer Hospital] I lived in this area he said: 'This is the main reason for your illness.'\"\n\nBut there had been no studies published on cancer rates in these communities. We later found out that data on this subject was being actively suppressed by the Iraqi government - a Basra health department document leaked to us revealed cancer rates were three times higher in Basra than official records claimed.\n\nPeople living and working in Rumaila sent us videos which gave us a glimpse of what life was like there, but we were struggling to be allowed in to film for ourselves. Our official requests were turned down on at least five occasions, and the oil field - which at 1,800 sq km is bigger than some small countries - is guarded by several checkpoints. Beyond those checkpoints, the area is patrolled by the Iraqi oil police and private security firms working for the oil companies. And behind all of this are the armed militia groups that dominate Iraqi politics in the south - and are profiting from the oil operations on their doorstep.\n\nSo the only option remaining for us was to go into Rumaila undercover.",
+      "published_date": "2022-11-09",
+      "topic": 5,
+      "redactor": [
+        1,
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "newspaper.newspaper",
+    "pk": 4,
+    "fields": {
+      "title": "Banksy unveils Ukraine gymnast mural on building shelled by Russia",
+      "content": "Renowned graffiti-artist Banksy has unveiled his latest work on a building devastated by shelling in Ukraine.\n\nBanksy posted a picture on Instagram of the artwork, a gymnast doing a handstand amid debris, in Borodyanka.\n\nMurals spotted in and around Ukraine's capital Kyiv had led to speculation the anonymous artist was working in the war-torn country.\n\nAnother, not officially claimed, depicts a man resembling Vladimir Putin being defeated at Judo by a child.\n\nThe graffiti artist posted three images of the gymnast mural in the wreckage left by Russian shelling, with a caption merely stating \"Borodyanka, Ukraine\".\n\nBorodyanka was one of the places hardest hit by Russia's bombardment of Ukraine in the immediate aftermath of the 24 February invasion.\n\nRussian soldiers occupied the town - located around 30 miles (48km) north west of Ukraine's capital Kyiv - for weeks in the initial phase of the war, before it was eventually liberated by Ukraine in April.\n\nA second piece in Borodyanka, which has not been confirmed to be by Banksy, depicts a man resembling Vladimir Putin being flipped during a judo match with a young boy. The Russian president is a judo black belt and noted admirer of the martial art.\n\n",
+      "published_date": "2022-11-09",
+      "topic": 6,
+      "redactor": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "newspaper.newspaper",
+    "pk": 5,
+    "fields": {
+      "title": "Everything We Know So Far About Stranger Things Season 5",
+      "content": "We knew this day would one day come because as they say, all good things must come to an end. On February 17, the Duffer Brothers announced that season 5 will be the final chapter for Stranger Things, the sci-fi series that’s sustained global phenomenon status throughout its record-breaking run on Netflix. It’ll be very difficult to say goodbye, but the epic adventures of our favorite Dungeons & Dragons crew are not over yet.\nWe’ve seen Eleven, Will, Mike, Lucas, Dustin, Max, and the rest of the Hawkins gang fight demogorgons, traverse the mysteries of the Upside Down, battle Russians and Mind Flayers at the Starcourt Mall, and try to defeat the alternate dimension’s latest villain, Vecna. Now that Volume 2 of Stranger Things 4 is out on Netflix, we’re already wondering how the many storylines of this show might wrap up in season 5. And most importantly, when will it premiere? Will it be split up into two parts like season 4? There are so many questions.\n\nBut luckily, we’re here to break all the details down. Below, find out everything we know so far about season 5 of Stranger Things.\n\n",
+      "published_date": "2022-11-09",
+      "topic": 6,
+      "redactor": [
+        11
+      ]
+    }
+  },
+  {
+    "model": "newspaper.newspaper",
+    "pk": 6,
+    "fields": {
+      "title": "Joni Mitchell says her music upset male artists in the 1970s",
+      "content": "Joni Mitchell has said her music did not get the recognition it deserved in the 1970s due to music industry sexism.\n\nThe musician, whose introspective, confessional songs became touchstones of the singer-songwriter genre, said she \"took a lot of flak\" at the time.\n\n\"People thought that it was too intimate,\" the 79-year-old said in a rare interview with Sir Elton John.\n\n\"I think it upset the male singer-songwriters. They'd go, 'Oh no. Do we have to bare our souls like this now?'\"\n\nShe added: \"I think it made people nervous.\"\n\nThe star said she was pleased that contemporary artists seemed better equipped to express the feelings of loss and sorrow that she explored on landmark albums like Ladies of the Canyon (1970) and Blue (1971).\n\n\"It took to this generation, they seem to be able to face those emotions more easily than my generation,\" she told Sir Elton in an interview for his Rocket Hour radio show on Apple Music.\n\nIt is one of the singer's first full-length interviews since recovering from a brain aneurysm in 2015, which temporarily left her unable to walk and talk.\n\nThe pair became friends during Mitchell's rehabilitation, when she hosted \"Joni Jams\" with fellow musicians in her California living room.\n\n\"Music has helped you so much,\" said Sir Elton, as he described her \"incredible\" recovery.\n\n",
+      "published_date": "2022-11-09",
+      "topic": 2,
+      "redactor": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "newspaper.newspaper",
+    "pk": 7,
+    "fields": {
+      "title": "Kate Winslet covers mum's £17,000 energy bill",
+      "content": "Winslet donated £17,000 to the family's GoFundMe page and contacted Ms Hunter to wish them well.\n\nMs Hunter, 49, said: \"Our journey as family has been very traumatic and I just feel done at this point in my life.\n\n\"When I heard about the money I just burst into tears - I thought it wasn't even real. I'm still thinking is this real?\"\n\nRead more stories from Tayside and Central\nMum faces £17,000 energy bill to keep girl alive\nEconomists question 'black hole' in UK finances\nThe Hunters live in a large council house in Tillicoultry - which is not energy efficient - so there is space for Freya's equipment.\n\nAt present it costs them £6,500 a year to run the kit and heat the home - though Ms Hunter said she had turned the heating off in most rooms to save money.\n\nAlthough she works full time in the third sector on a moderate wage, she does not receive the same support as those on low incomes.\n\nMs Hunter also worries that possible winter power cuts in the event of reduced gas supply - a result of Russia's war on Ukraine - could put Freya's care at risk.",
+      "published_date": "2022-11-09",
+      "topic": 3,
+      "redactor": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "newspaper.newspaper",
+    "pk": 8,
+    "fields": {
+      "title": "How Australia became the world's greatest lithium supplier",
+      "content": "This is the site of an old tin mine known as the Cornwall Pit. At roughly 265m (870ft) deep, the terraced wall of the pit represents a century's worth of work that began in 1888 when a pound of tin was lifted out of a nearby creek. When the surface-metal was scoured from the landscape, methods changed eventually giving way to open-cut mining in the host pegmatite vein – an igneous rock with a coarse texture similar to granite.\n\nIn 1980, another metal was found at Greenbushes which, at the time, didn't give the mine owners much pause for thought. Lithium, a soft, silvery-white reactive alkali metal, was considered more of a geological oddity.\n\nA small-scale mining operation began in 1983, extracting lithium for use in niche industrial operations like glass making, steel, castings, ceramics, lubricants and metal alloys. It wasn't until decades later when the existential risk posed by climate change became widely understood, and governments began talking about replacing the estimated 1.45 billion petrol cars worldwide with electric vehicles, that the reserves at Greenbushes began to be seen in a very different light.\n\nToday the Cornwall tin pit is closed for business, and Greenbushes has become the largest lithium mine in the world.",
+      "published_date": "2022-11-09",
+      "topic": 13,
+      "redactor": [
+      ]
+    }
+  },
+  {
+    "model": "newspaper.newspaper",
+    "pk": 9,
+    "fields": {
+      "title": "Big Ben’s iconic bongs return after restoration work",
+      "content": "After five years of restoration work, the bells of the Elizabeth Tower - including Big Ben - are returning to regular service.\n\nBig Ben will be struck 11 times at 11:00 on Remembrance Sunday to mark the beginning of the two-minute silence.\n\nClockmakers Ian Westworth and Alex Jeffrey spoke to the BBC about bringing the iconic bells back into service.",
+      "published_date": "2022-11-09",
+      "topic": 13,
+      "redactor": [
+        9
+      ]
+    }
+  }
+]
