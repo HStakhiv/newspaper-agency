@@ -142,4 +142,6 @@ class PrivateRedactorTest(TestCase):
 
         self.assertEqual(new_user.first_name, form_data["first_name"])
         self.assertEqual(new_user.last_name, form_data["last_name"])
-        self.assertEqual(new_user.years_of_experience, form_data["years_of_experience"])
+        self.assertEqual(
+            new_user.years_of_experience, form_data["years_of_experience"]
+        )

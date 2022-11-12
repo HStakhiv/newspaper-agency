@@ -42,10 +42,13 @@ class ModelsTests(TestCase):
     def test_newspaper_str(self):
         self.assertEqual(
             str(self.newspaper),
-            f"{self.topic.name} {self.newspaper.title} {self.newspaper.published_date}"
+            f"{self.topic.name} "
+            f"{self.newspaper.title} {self.newspaper.published_date}",
         )
 
     def test_create_redactor_with_years_of_experience(self):
         self.assertEqual(self.redactor.username, self.username)
         self.assertTrue(self.redactor.check_password(self.password))
-        self.assertEqual(self.redactor.years_of_experience, self.years_of_experience)
+        self.assertEqual(
+            self.redactor.years_of_experience, self.years_of_experience
+        )

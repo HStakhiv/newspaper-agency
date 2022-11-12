@@ -33,9 +33,9 @@ def login_view(request):
                 login(request, user)
                 return redirect("/")
             else:
-                msg = 'Invalid credentials'
+                msg = "Invalid credentials"
         else:
-            msg = 'Error validating the form'
+            msg = "Error validating the form"
 
     return render(request, "accounts/login.html", {"form": form, "msg": msg})
 
@@ -79,9 +79,7 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
 
         name = self.request.GET.get("name", "")
 
-        context["search_form"] = TopicSearchForm(
-            initial={"name": name}
-        )
+        context["search_form"] = TopicSearchForm(initial={"name": name})
 
         return context
 
@@ -123,9 +121,7 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
 
         title = self.request.GET.get("title", "")
 
-        context["search_form"] = NewspaperSearchForm(
-            initial={"title": title}
-        )
+        context["search_form"] = NewspaperSearchForm(initial={"title": title})
 
         return context
 

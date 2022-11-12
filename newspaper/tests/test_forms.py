@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from newspaper.forms import RedactorCreationForm, RedactorUpdateForm
-from newspaper.models import Newspaper, Topic
+from newspaper.models import Topic
 
 
 class FormTest(TestCase):
