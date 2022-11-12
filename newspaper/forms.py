@@ -32,7 +32,7 @@ class RedactorCreationForm(UserCreationForm):
             "last_name",
         )
 
-    def clean_license_number(self):
+    def clean_years_of_experience(self):
         return validate_years_of_experience(self.cleaned_data["years_of_experience"])
 
 
@@ -41,12 +41,12 @@ class RedactorUpdateForm(forms.ModelForm):
         model = Redactor
         fields = ("years_of_experience", "first_name", "last_name")
 
-    def clean_license_number(self):
+    def clean_years_of_experience(self):
         return validate_years_of_experience(self.cleaned_data["years_of_experience"])
 
 
 def validate_years_of_experience(years_of_experience):
-    if not 0 < years_of_experience < 80:
+    if not 0 <= years_of_experience:
         raise ValidationError(
             "Ensure that the years of experience is between 0 and 80"
         )
