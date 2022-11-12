@@ -29,13 +29,9 @@ class RedactorCreationForm(UserCreationForm):
         )
 
     def clean_years_of_experience(self):
-        data = self.cleaned_data["years_of_experience"]
-        if data < 0 or data > 80:
-            raise ValidationError(
-                "Ensure that the years of experience is between 0 and 80"
-            )
-
-        return data
+        return validate_years_of_experience(
+            self.cleaned_data["years_of_experience"]
+        )
 
 
 class RedactorUpdateForm(forms.ModelForm):
@@ -44,13 +40,18 @@ class RedactorUpdateForm(forms.ModelForm):
         fields = ("years_of_experience", "first_name", "last_name")
 
     def clean_years_of_experience(self):
-        data = self.cleaned_data["years_of_experience"]
-        if data < 0 or data > 80:
-            raise ValidationError(
-                "Ensure that the years of experience is between 0 and 80"
-            )
+        return validate_years_of_experience(
+            self.cleaned_data["years_of_experience"]
+        )
 
-        return data
+
+def validate_years_of_experience(years_of_experience):
+    if years_of_experience < 0 or years_of_experience > 80:
+        raise ValidationError(
+            "Ensure that the years of experience is between 0 and 80"
+        )
+
+    return years_of_experience
 
 
 class DateInput(forms.DateInput):
