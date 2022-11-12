@@ -59,7 +59,7 @@ def index(request):
 
     context = {
         "redactor_info": redactor.order_by("-years_of_experience")[:5],
-        "newspaper_articles": newspaper.order_by("published_date")[:5],
+        "newspaper_articles": newspaper.order_by("-published_date")[:5],
         "num_redactors": num_redactors,
         "num_topics": num_topics,
         "num_newspapers": num_newspapers,
