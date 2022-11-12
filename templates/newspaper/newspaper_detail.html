@@ -1,26 +1,91 @@
-{% extends "base.html" %}
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_filters %}
+
+{% block title %} Details {% endblock title %}
 
 {% block content %}
-  <h1>{{ newspaper.title }}</h1>
-  <p><strong>Newspaper:</strong> ({{ newspaper.topic.name }}, {{ newspaper.topic.country }})</p>
-  <h3>
-    Redactors:
-    {% if user not in newspaper.redactor.all %}
-      <a style="float: right" href="{% url 'newspaper:toggle_assign_to_newspaper' pk=newspaper.id %}" class="btn btn-success">Assign me to this newspaper</a>
-    {% else %}
-      <a style="float: right" href="{% url 'newspaper:toggle_assign_to_newspaper' pk=newspaper.id %}" class="btn btn-danger">Delete me from this newspaper</a>
-    {% endif %}
-  </h3>
-  <hr>
-  <ul>
-    {% for redactor in newspaper.redactor.all %}
-      <li>
-        <strong><a href="{% url 'newspaper:redactor-detail' pk=redactor.id %}">{{ redactor.first_name }} {{ redactor.last_name }}</a></strong>
-        (Years of experience: {{ redactor.years_of_experience }})
-      </li>
-    {% endfor %}
-  </ul>
-  <p>{{ newspaper.content }}</p>
-  <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}" class="btn btn-secondary">Update</a>
-  <a href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger">Delete</a>
-{% endblock %}
+
+  <div class="header bg-primary pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-0">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item">
+                  <a href="{% url 'newspaper:newspaper-list' %}">
+                    Newspaper
+                  </a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.id %}">
+                    {{ newspaper.id }}
+                  </a>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page content -->
+  <div class="container-fluid mt--6">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <!-- Card header -->
+          <div class="card-header border-0 text-center">
+            <h3 class="h1 mb-0">NEWSPAPER DETAIL</h3>
+          </div>
+          <!-- Content -->
+          <div class="table-responsive">
+            <div class="m-4">
+              <p class="h2"><strong>{{ newspaper.title }}</strong></p>
+              <p><strong>Topic:</strong> {{ newspaper.topic.name }}</p>
+              <p><strong>Published date:</strong> {{ newspaper.published_date }}</p>
+              <p class="h3">
+                Redactors:
+                {% if user not in newspaper.redactor.all %}
+                  <a style="float: right"
+                     href="{% url 'newspaper:toggle_assign_to_newspaper' pk=newspaper.id %}"
+                     class="btn btn-sm btn-success">
+                    Assign me to this newspaper
+                  </a>
+                {% else %}
+                  <a style="float: right"
+                     href="{% url 'newspaper:toggle_assign_to_newspaper' pk=newspaper.id %}"
+                     class="btn btn-sm btn-danger">
+                    Delete me from this newspaper
+                  </a>
+                {% endif %}
+              </p>
+              <ul>
+                {% for redactor in newspaper.redactor.all %}
+                  <li>
+                    <strong><a href="{% url 'newspaper:redactor-detail' pk=redactor.id %}">{{ redactor.first_name }} {{ redactor.last_name }}</a></strong>
+                    (Years of experience: {{ redactor.years_of_experience }})
+                  </li>
+                {% endfor %}
+              </ul>
+              <hr>
+              <p class="h3">Text:</p>
+              <p>{{ newspaper.content }}</p>
+              <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}" class="btn btn-sm btn-primary">Update</a>
+              <a href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}" class="btn btn-sm btn-danger">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include "includes/footer.html" %}
+
+  </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}{% endblock javascripts %}

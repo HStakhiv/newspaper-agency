@@ -1,40 +1,92 @@
-{% extends "base.html" %}
-{% load crispy_forms_filters %}
+{% extends 'layouts/base.html' %}
+
+{% block title %} Tables {% endblock title %}
 
 {% block content %}
-    <h1>
-      Redactor List
-      <a href="{% url 'newspaper:redactor-create' %}" class="btn btn-primary link-to-page">
-        Create
-      </a>
-    </h1>
 
-    <form action="" method="get" class="form-inline">
-      {{ search_form|crispy }}
-      <input class="btn btn-primary" type="submit" value="🔍">
-    </form>
+  <div class="header bg-primary pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-0">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item"><a href="{{ request.path }}">Redactor</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="col-lg-6 col-5 text-right">
+            <a href="{% url 'newspaper:redactor-create' %}" class="btn btn-sm btn-neutral">Create new redactor</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    {% if redactor_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Years of experience</th>
-      </tr>
-    {% for redactor in redactor_list %}
-      <tr>
-        <td>{{ redactor.id }}</td>
-        <td><a href="{{ redactor.get_absolute_url }}">{{ redactor.username }} {% if user == redactor %} (Me){% endif %}</a></td>
-        <td>{{ redactor.first_name }}</td>
-        <td>{{ redactor.last_name }}</td>
-        <td>{{ redactor.years_of_experience }}</td>
-      </tr>
-    {% endfor %}
+  <!-- Page content -->
+  <div class="container-fluid mt--6">
+    <div class="row">
+      <div class="col">
+        {% if redactor_list %}
+          <h3 class="font-weight-bolder text-center text-white">REDACTOR TABLE</h3>
+          <div class="card">
+            <!-- Search -->
+            <div class="card-header border-0">
+              <form action="" method="get" class="mb-0 form-inline">
+                {{ search_form }}
+                <input class="btn btn-sm btn-primary" type="submit" value="🔍 Search">
+              </form>
+            </div>
+            <!-- Table -->
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col" class="sort text-center" data-sort="name">Username</th>
+                    <th scope="col" class="sort text-center" data-sort="budget">First name</th>
+                    <th scope="col" class="sort text-center" data-sort="status">Last name</th>
+                    <th scope="col" class="sort text-center" data-sort="completion">Experience</th>
+                  </tr>
+                </thead>
+                <tbody class="list">
+                  {% for redactor in redactor_list %}
+                    <tr>
+                      <th scope="row" class="text-center">
+                        <a href="{% url 'newspaper:redactor-detail' pk=redactor.id %}">{{ redactor.username }}</a>
+                      </th>
+                      <td class="budget text-center">
+                        {{ redactor.first_name }}
+                      </td>
+                      <td class="text-center">
+                        {{ redactor.last_name }}
+                      </td>
+                      <td class="text-center">
+                        {{ redactor.years_of_experience }} year{{ redactor.years_of_experience|pluralize }}
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- Card footer -->
+            {% include "includes/pagination.html" %}
+          </div>
+      {% else %}
+        <div class="card">
+          <div class="card-header border-0">
+            <p class="h1 text-center font-weight-bold pb-300">There are no redactor in the agency.</p>
+          </div>
+        </div>
+      {% endif %}
+      </div>
+    </div>
 
-    </table>
-    {% else %}
-      <p>There are no redactor in the agency.</p>
-    {% endif %}
-{% endblock %}
+    {% include "includes/footer.html" %}
+
+  </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}{% endblock javascripts %}

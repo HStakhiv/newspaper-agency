@@ -1,4 +1,4 @@
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
@@ -9,7 +9,7 @@ from django.views import generic
 from newspaper.form import (
     NewspaperForm,
     RedactorCreationForm,
-    RedactorYearsUpdateForm,
+    RedactorUpdateForm,
     TopicSearchForm,
     RedactorSearchForm,
     NewspaperSearchForm,
@@ -38,6 +38,12 @@ def login_view(request):
             msg = 'Error validating the form'
 
     return render(request, "accounts/login.html", {"form": form, "msg": msg})
+
+
+def logout_view(request):
+    logout(request)
+
+    return redirect("login")
 
 
 @login_required
@@ -195,7 +201,7 @@ class RedactorCreationView(LoginRequiredMixin, generic.CreateView):
 
 class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Redactor
-    form_class = RedactorYearsUpdateForm
+    form_class = RedactorUpdateForm
     success_url = reverse_lazy("newspaper:redactor-list")
 
 

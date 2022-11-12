@@ -36,10 +36,10 @@ class RedactorCreationForm(UserCreationForm):
         return validate_years_of_experience(self.cleaned_data["years_of_experience"])
 
 
-class RedactorYearsUpdateForm(forms.ModelForm):
+class RedactorUpdateForm(forms.ModelForm):
     class Meta:
         model = Redactor
-        fields = ("years_of_experience",)
+        fields = ("years_of_experience", "first_name", "last_name")
 
     def clean_license_number(self):
         return validate_years_of_experience(self.cleaned_data["years_of_experience"])

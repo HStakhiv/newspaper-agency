@@ -16,14 +16,13 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.auth.views import LogoutView
 from django.urls import path, include
 
-from newspaper.views import login_view
+from newspaper.views import login_view, logout_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("newspaper.urls", namespace="newspaper")),
     path("accounts/login/", login_view, name="login"),
-    path("logout/", LogoutView.as_view(), name="logout"),
+    path("logout/", logout_view, name="logout"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

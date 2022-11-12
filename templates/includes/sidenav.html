@@ -19,19 +19,19 @@
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.path == '/newspaper/' %} active {% endif %}" href="{% url 'newspaper:newspaper-list' %}">
-              <i class="ni ni-paper-diploma text-red  "></i>
+              <i class="ni ni-align-center text-red  "></i>
               <span class="nav-link-text">All newspapers</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.path == '/redactor/' %} active {% endif %}" href="{% url 'newspaper:redactor-list' %}">
-              <i class="ni ni-ruler-pencil text-orange"></i>
+              <i class="ni ni-circle-08 text-orange"></i>
               <span class="nav-link-text">All redactors</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.path == '/topic/' %} active {% endif %}" href="{% url 'newspaper:topic-list' %}">
-              <i class="ni ni-tag text-green"></i>
+              <i class="ni ni-book-bookmark text-green"></i>
               <span class="nav-link-text">All topics</span>
             </a>
           </li>

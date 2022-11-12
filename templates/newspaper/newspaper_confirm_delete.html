@@ -1,13 +1,68 @@
-{% extends "base.html" %}
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_filters %}
+
+{% block title %} Details {% endblock title %}
 
 {% block content %}
-  <h1>Delete Newspaper</h1>
 
-  <p>Are you sure you want to delete the newspaper: {{ newspaper.title }}?</p>
+  <div class="header bg-primary pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-0">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item">
+                  <a href="{% url 'newspaper:newspaper-list' %}">
+                    Newspaper
+                  </a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.id %}">
+                    {{ newspaper.id }}
+                  </a>
+                </li>
+                <li class="breadcrumb-item"><a href="{{ request.path }}">Delete</a></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <form action="" method="post">
-    {% csrf_token %}
-    <input type="submit" value="Yes, delete!" class="btn btn-danger">
-    <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.id %}" class="btn btn-secondary">Cancel</a>
-  </form>
-{% endblock %}
+  <!-- Page content -->
+  <div class="container-fluid mt--6">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <!-- Card header -->
+          <div class="card-header border-0 text-center">
+            <h3 class="h1 mb-0">DELETE NEWSPAPER</h3>
+          </div>
+          <!-- Content -->
+          <div class="table-responsive">
+            <div class="m-4">
+              <p class="font-weight-bold">Are you sure you want to delete newspaper number {{ newspaper.id }}
+                with the title: "{{ newspaper.title }}"?</p>
+              <form action="" method="post">
+                {% csrf_token %}
+
+                <input type="submit" value="Yes, delete!" class="btn btn-danger">
+                <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.id %}" class="btn btn-primary">Cancel</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include "includes/footer.html" %}
+
+  </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}{% endblock javascripts %}
