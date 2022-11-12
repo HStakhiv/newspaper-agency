@@ -7,6 +7,12 @@ You will always know, who were the publishers of each Newspaper.
 
 [Newspaper Agency project deployed to Render](https://newspaper-agency-al6o.onrender.com)
 
+Use this
+**username:** `test`
+and
+**password:** `5hBVut4B`
+for testing
+
 ## Installation
 
 Python3 must be already installed
