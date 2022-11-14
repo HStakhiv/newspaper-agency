@@ -18,7 +18,7 @@ for testing
 Python3 must be already installed
 
 ```shell
-git clone https://github.com/HStakhiv/newspaper-agency
+git clone https://github.com/HStakhiv/newspaper-agency.git
 cd newspaper-agency
 python3 -n venv venv
 source venv/bin/activate
