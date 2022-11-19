@@ -1,0 +1,105 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Profile {% endblock title %}
+
+{% block content %}
+
+<div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(/static/assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+  <!-- Mask -->
+  <span class="mask bg-gradient-default opacity-8"></span>
+  <!-- Header container -->
+  <div class="container-fluid d-flex align-items-center">
+    <div class="row">
+      <div class="col-lg-12 col-md-10">
+        <h1 class="display-2 text-white">
+          Hello {{ request.user.username }} ({{ request.user.first_name }})
+        </h1>
+        <p class="text-white mt-0 mb-5">
+          This is {% if redactor == request.user %} your {% else %} {{ redactor.username }} {% endif %}
+          profile page. You can see, update or delete
+          {% if redactor == request.user %} your {% else %} {{ redactor.username }} {% endif %} information.
+        </p>
+        <span>
+          <a href="{% url 'newspaper:redactor-list' %}" class="btn btn-neutral">Show all redactors</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col-xl-4 order-xl-2">
+      <div class="card card-profile">
+        <img src="/static/assets/img/theme/img-1-1000x600.jpg" alt="Image placeholder" class="card-img-top">
+        <div class="row justify-content-center">
+          <div class="col-lg-3 order-lg-2">
+            <div class="card-profile-image">
+              <img src="/static/assets/img/theme/team-4.jpg" class="rounded-circle">
+            </div>
+          </div>
+        </div>
+        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+          <div class="d-flex justify-content-between">
+            <a href="{% url 'newspaper:redactor-update' pk=redactor.id %}" class="btn btn-sm btn-info  mr-4 ">Update</a>
+            <a href="{% url 'newspaper:redactor-delete' pk=redactor.id %}" class="btn btn-sm btn-danger float-right">Delete</a>
+          </div>
+        </div>
+        <div class="card-body pt-0">
+          <div class="text-center">
+            <h5 class="h3">
+              {{ redactor.username }}
+            </h5>
+            <div class="h5 font-weight-300">
+              {{ redactor.email }}
+            </div>
+            <div class="h5 font-weight-300">
+              Personal ID: {{ redactor.id }}
+            </div>
+            <div class="h2 mt-4">
+              {{ redactor.first_name }} {{ redactor.last_name }}
+            </div>
+            <div>
+              <p>{{ redactor.years_of_experience }} year{{ redactor.years_of_experience|pluralize }} of experience</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-8 order-xl-1">
+      <div class="card">
+        <div class="card-header">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Job information</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form>
+            <h6 class="heading text-muted mb-4">Newspapers</h6>
+            {% for newspaper in redactor.newspaper.all %}
+              <hr>
+              <p>
+                <strong>Title:</strong>
+                <a class="text-underline" href="{% url 'newspaper:newspaper-detail' pk=newspaper.id %}">{{ newspaper.title }}</a>
+              </p>
+              <p><strong>Topic:</strong> {{ newspaper.topic.name }}</p>
+              <p><strong>Newspaper ID:</strong> {{newspaper.id}}</p>
+            {% empty %}
+              <p>No newspapers!</p>
+            {% endfor %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include "includes/footer.html" %}
+
+</div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}{% endblock javascripts %}
