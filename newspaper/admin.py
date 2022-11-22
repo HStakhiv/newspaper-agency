@@ -24,12 +24,13 @@ class RedactorAdmin(UserAdmin):
             ),
         )
     )
+    list_filter = UserAdmin.list_filter + ("years_of_experience",)
 
 
 @admin.register(Newspaper)
 class NewspaperAdmin(admin.ModelAdmin):
-    search_fields = ("title",)
-    list_filter = ("title", "content", "published_date", "topic")
+    search_fields = ("content",)
+    list_filter = ("published_date", "topic")
 
 
 admin.site.register(Topic)
