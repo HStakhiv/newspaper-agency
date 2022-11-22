@@ -39,6 +39,12 @@
               <i class="ni ni-single-02"></i>
               <span>My profile</span>
             </a>
+            {% if user.is_staff %}
+              <a href="{% url 'admin:index' %}" class="dropdown-item">
+                <i class="ni ni-settings"></i>
+                <span>Admin panel</span>
+              </a>
+            {% endif %}
             <div class="dropdown-divider"></div>
             <a href="{% url 'logout' %}" class="dropdown-item">
               <i class="ni ni-user-run text-red"></i>
