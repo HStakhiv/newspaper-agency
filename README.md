@@ -7,17 +7,11 @@ You will always know, who were the publishers of each Newspaper.
 
 [Newspaper Agency project deployed to Render](https://newspaper-agency-al6o.onrender.com)
 
-```
-Log in as
-
-Staff user
-username: staff.user
-password: 5hBVut4B
-
-Ordinary user
-username: just.user
-password: 5hBVut4B
-```
+Use this
+**username:** `test`
+and
+**password:** `5hBVut4B`
+for testing
 
 ## Installation
 
