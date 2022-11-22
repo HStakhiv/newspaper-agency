@@ -27,10 +27,10 @@ class PrivateTopicTest(TestCase):
         )
         self.client.force_login(self.user)
 
-    def test_retrieve_topic(self):
-        Topic.objects.create(name="test1")
-        Topic.objects.create(name="test2")
+        for i in range(3):
+            Topic.objects.create(name=f"test{i}")
 
+    def test_retrieve_topic(self):
         response = self.client.get(TOPIC_LIST_URL)
         topics = Topic.objects.all()
 
@@ -40,6 +40,14 @@ class PrivateTopicTest(TestCase):
             list(topics),
         )
         self.assertTemplateUsed(response, "newspaper/topic_list.html")
+
+    def test_topic_search_test(self):
+        response = self.client.get(TOPIC_LIST_URL + "?name=0")
+
+        self.assertEqual(
+            list(response.context["topic_list"]),
+            list(Topic.objects.filter(name__icontains="0"))
+        )
 
 
 class PublicNewspaperTests(TestCase):
@@ -87,6 +95,14 @@ class PrivateNewspaperTest(TestCase):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
+
+    def test_newspaper_test(self):
+        response = self.client.get(NEWSPAPER_LIST_URL + "?title=e")
+
+        self.assertEqual(
+            list(response.context["newspaper_list"]),
+            list(Newspaper.objects.filter(title__icontains="e"))
+        )
 
 
 class PublicRedactorTests(TestCase):
@@ -144,4 +160,12 @@ class PrivateRedactorTest(TestCase):
         self.assertEqual(new_user.last_name, form_data["last_name"])
         self.assertEqual(
             new_user.years_of_experience, form_data["years_of_experience"]
+        )
+
+    def test_redactor_search_test(self):
+        response = self.client.get(REDACTOR_LIST_URL + "?username=e")
+
+        self.assertEqual(
+            list(response.context["redactor_list"]),
+            list(Redactor.objects.filter(username__icontains="e"))
         )
