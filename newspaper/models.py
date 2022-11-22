@@ -9,7 +9,7 @@ class Topic(models.Model):
     class Meta:
         ordering = ["name"]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -21,7 +21,7 @@ class Redactor(AbstractUser):
         verbose_name_plural = "redactors"
         ordering = ["-years_of_experience"]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.username} ({self.first_name} {self.last_name})"
 
     def get_absolute_url(self):
@@ -40,5 +40,5 @@ class Newspaper(models.Model):
     class Meta:
         ordering = ["-published_date"]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.topic.name} {self.title} {self.published_date}"
