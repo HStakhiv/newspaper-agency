@@ -9,7 +9,7 @@ class Topic(models.Model):
     class Meta:
         ordering = ["name"]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -19,8 +19,9 @@ class Redactor(AbstractUser):
     class Meta:
         verbose_name = "redactor"
         verbose_name_plural = "redactors"
+        ordering = ["-years_of_experience"]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.username} ({self.first_name} {self.last_name})"
 
     def get_absolute_url(self):
@@ -36,5 +37,8 @@ class Newspaper(models.Model):
     )
     redactor = models.ManyToManyField(to=Redactor, related_name="newspaper")
 
-    def __str__(self):
+    class Meta:
+        ordering = ["-published_date"]
+
+    def __str__(self) -> str:
         return f"{self.topic.name} {self.title} {self.published_date}"

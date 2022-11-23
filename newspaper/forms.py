@@ -46,7 +46,7 @@ class RedactorUpdateForm(forms.ModelForm):
 
 
 def validate_years_of_experience(years_of_experience):
-    if years_of_experience < 0 or years_of_experience > 80:
+    if not (0 <= years_of_experience <= 80):
         raise ValidationError(
             "Ensure that the years of experience is between 0 and 80"
         )
