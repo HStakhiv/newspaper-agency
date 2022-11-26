@@ -5,7 +5,8 @@ You will always know, who were the publishers of each Newspaper.
 
 ## Check it out!
 
-[Newspaper Agency project deployed to Render](https://newspaper-agency-al6o.onrender.com)
+[Newspaper Agency project deployed to Render](https://newspaper-agency-al6o.onrender.com)\
+[Newspaper Agency project deployed to PythonAnywhere](http://hstakhiv.pythonanywhere.com/)
 
 Use this
 **username:** `test`
